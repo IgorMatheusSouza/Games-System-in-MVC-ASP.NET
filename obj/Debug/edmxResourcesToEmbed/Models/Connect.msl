@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sistemaJogosModelStoreContainer" CdmEntityContainer="sistemaJogosEntities">
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="sistemaJogosModel.clientes">
+        <MappingFragment StoreEntitySet="clientes">
+          <ScalarProperty Name="idclientes" ColumnName="idclientes" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="dtNascimento" ColumnName="dtNascimento" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="valorGasto" ColumnName="valorGasto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="compra">
+      <EntityTypeMapping TypeName="sistemaJogosModel.compra">
+        <MappingFragment StoreEntitySet="compra">
+          <ScalarProperty Name="idCompra" ColumnName="idCompra" />
+          <ScalarProperty Name="jogos_idjogos" ColumnName="jogos_idjogos" />
+          <ScalarProperty Name="clientes_idclientes" ColumnName="clientes_idclientes" />
+          <ScalarProperty Name="dtCompra" ColumnName="dtCompra" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jogos">
+      <EntityTypeMapping TypeName="sistemaJogosModel.jogos">
+        <MappingFragment StoreEntitySet="jogos">
+          <ScalarProperty Name="idjogos" ColumnName="idjogos" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="dtLancamentos" ColumnName="dtLancamentos" />
+          <ScalarProperty Name="plataforma" ColumnName="plataforma" />
+          <ScalarProperty Name="preco" ColumnName="preco" />
+          <ScalarProperty Name="validacao" ColumnName="validacao" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

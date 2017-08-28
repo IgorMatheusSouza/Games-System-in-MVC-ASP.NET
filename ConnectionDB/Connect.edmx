@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sistemaGamesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="idclientes" />
+          </Key>
+          <Property Name="idclientes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dtNascimento" Type="datetime" Nullable="false" />
+          <Property Name="cpf" Type="bigint" />
+          <Property Name="valorGasto" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="compra">
+          <Key>
+            <PropertyRef Name="idCompra" />
+            <PropertyRef Name="jogos_idjogos" />
+            <PropertyRef Name="clientes_idclientes" />
+          </Key>
+          <Property Name="idCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jogos_idjogos" Type="int" Nullable="false" />
+          <Property Name="clientes_idclientes" Type="int" Nullable="false" />
+          <Property Name="dtCompra" Type="datetime" />
+          <Property Name="quantidade" Type="int" />
+          <Property Name="valor" Type="real" />
+        </EntityType>
+        <EntityType Name="jogos">
+          <Key>
+            <PropertyRef Name="idjogos" />
+          </Key>
+          <Property Name="idjogos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="255" />
+          <Property Name="descricao" Type="text" />
+          <Property Name="img" Type="varchar" MaxLength="1000" />
+          <Property Name="dtLancamentos" Type="date" />
+          <Property Name="plataforma" Type="varchar" MaxLength="50" />
+          <Property Name="preco" Type="real" />
+          <Property Name="validacao" Type="bit" />
+          <Property Name="quantidade" Type="int" />
+        </EntityType>
+        <Association Name="FK_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="idclientes" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="jogos_idjogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jogos">
+          <End Role="jogos" Type="Self.jogos" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jogos">
+              <PropertyRef Name="idjogos" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="jogos_idjogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistemaGamesModelStoreContainer">
+          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="compra" EntityType="Self.compra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jogos" EntityType="Self.jogos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_clientes" Association="Self.FK_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jogos" Association="Self.FK_jogos">
+            <End Role="jogos" EntitySet="jogos" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sistemaGamesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="idclientes" />
+          </Key>
+          <Property Name="idclientes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtNascimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cpf" Type="Int64" />
+          <Property Name="valorGasto" Type="Single" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="Self.FK_clientes" FromRole="clientes" ToRole="compra" />
+        </EntityType>
+        <EntityType Name="compra">
+          <Key>
+            <PropertyRef Name="idCompra" />
+            <PropertyRef Name="jogos_idjogos" />
+            <PropertyRef Name="clientes_idclientes" />
+          </Key>
+          <Property Name="idCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jogos_idjogos" Type="Int32" Nullable="false" />
+          <Property Name="clientes_idclientes" Type="Int32" Nullable="false" />
+          <Property Name="dtCompra" Type="DateTime" Precision="3" />
+          <Property Name="quantidade" Type="Int32" />
+          <Property Name="valor" Type="Single" />
+          <NavigationProperty Name="clientes" Relationship="Self.FK_clientes" FromRole="compra" ToRole="clientes" />
+          <NavigationProperty Name="jogos" Relationship="Self.FK_jogos" FromRole="compra" ToRole="jogos" />
+        </EntityType>
+        <EntityType Name="jogos">
+          <Key>
+            <PropertyRef Name="idjogos" />
+          </Key>
+          <Property Name="idjogos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dtLancamentos" Type="DateTime" Precision="0" />
+          <Property Name="plataforma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="preco" Type="Single" />
+          <Property Name="validacao" Type="Boolean" />
+          <Property Name="quantidade" Type="Int32" />
+          <NavigationProperty Name="compra" Relationship="Self.FK_jogos" FromRole="jogos" ToRole="compra" />
+        </EntityType>
+        <Association Name="FK_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="idclientes" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="jogos_idjogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jogos">
+          <End Role="jogos" Type="Self.jogos" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jogos">
+              <PropertyRef Name="idjogos" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="jogos_idjogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistemaGamesEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="clientes" EntityType="Self.clientes" />
+          <EntitySet Name="compra" EntityType="Self.compra" />
+          <EntitySet Name="jogos" EntityType="Self.jogos" />
+          <AssociationSet Name="FK_clientes" Association="Self.FK_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jogos" Association="Self.FK_jogos">
+            <End Role="jogos" EntitySet="jogos" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sistemaGamesModelStoreContainer" CdmEntityContainer="sistemaGamesEntities2">
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="sistemaGamesModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="idclientes" ColumnName="idclientes" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="dtNascimento" ColumnName="dtNascimento" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="valorGasto" ColumnName="valorGasto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="compra">
+            <EntityTypeMapping TypeName="sistemaGamesModel.compra">
+              <MappingFragment StoreEntitySet="compra">
+                <ScalarProperty Name="idCompra" ColumnName="idCompra" />
+                <ScalarProperty Name="jogos_idjogos" ColumnName="jogos_idjogos" />
+                <ScalarProperty Name="clientes_idclientes" ColumnName="clientes_idclientes" />
+                <ScalarProperty Name="dtCompra" ColumnName="dtCompra" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jogos">
+            <EntityTypeMapping TypeName="sistemaGamesModel.jogos">
+              <MappingFragment StoreEntitySet="jogos">
+                <ScalarProperty Name="idjogos" ColumnName="idjogos" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="dtLancamentos" ColumnName="dtLancamentos" />
+                <ScalarProperty Name="plataforma" ColumnName="plataforma" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="validacao" ColumnName="validacao" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
