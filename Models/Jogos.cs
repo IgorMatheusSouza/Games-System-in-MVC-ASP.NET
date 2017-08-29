@@ -9,17 +9,10 @@ namespace SistemaJogos.Models
     public class Jogos
     {
 
-        sistemaGamesEntities2 connect = new sistemaGamesEntities2();
+        sistemaGamesEntities connect = new sistemaGamesEntities();
         
         public Jogos()
         {
-
-        }
-        public jogos SelecionarGamePeloId(int id)
-        {
-            
-            jogos jogo = connect.jogos.First(o => o.idjogos == id);
-            return jogo;
 
         }
         public int idjogos { get; set; }
@@ -32,35 +25,29 @@ namespace SistemaJogos.Models
         public Nullable<bool> validacao { get; set; }
         public Nullable<int> quantidade { get; set; }
 
-        public int SelecionarQuant()
+        public jogos SelecionarGamePeloId(int id)
         {
-            int k = (from mat in connect.jogos
-                     select mat.idjogos).Count();
-
-            return k;
+            jogos Model = connect.jogos.First(o => o.idjogos == id);
+            return Model;
         }
 
-        public jogos SelecionarGamePeloNome(string nome)
+        public IQueryable<jogos> SelecionarTodosGame()
         {
-            jogos game = new jogos();
-
-            int k = (from mat in connect.jogos
-                     select mat.idjogos).Count();
-
-            for (int i = 0; i < k; i++)
-            {
-                game = connect.jogos.First(pk => pk.idjogos == i);
-
-                if ((game.nome.ToLower().Contains(nome.ToLower())) && game.validacao == true)
-                {
-                    return game;
-                }
-
-
-
-            }
-
-            return game;
+            IQueryable<jogos> Model = connect.jogos
+                     .OrderBy(r => r.nome);
+            return Model;
+        }
+        public IQueryable<jogos> SelecionarGamePeloNome(string nomeJogo)
+        {
+            IQueryable<jogos> Model = connect.jogos
+                     .Where(r => r.nome.Contains(nomeJogo));
+            return Model;
+        }
+        public IQueryable<jogos> SelecionarGamePelaPlat(string plat)
+        {
+            IQueryable<jogos> Model = connect.jogos
+                     .Where(r => r.plataforma.Contains(plat));
+            return Model;
         }
     }
 }

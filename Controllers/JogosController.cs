@@ -11,30 +11,43 @@ namespace SistemaJogos.Controllers
 {
     public class JogosController : Controller
     {
-       private sistemaGamesEntities2 db = new sistemaGamesEntities2();
-      
-        public ActionResult Index()
+       private sistemaGamesEntities db = new sistemaGamesEntities();
+       private Jogos game = new Jogos();
+
+
+        public ActionResult Index(string plat= null, string valor= null)
         {
-            var Model = from mat in db.jogos
-                         select mat;
-            
-            return View(Model);
+            if (plat != null)
+            {
+                return View(game.SelecionarGamePelaPlat(plat));
+            }
+            return View(game.SelecionarTodosGame());
         }
-       
+
+        public ActionResult CadastrarJogo()
+        {
+            return View();
+        }
+        public ActionResult JogoPage(int Id)
+        {
+
+            return View(game.SelecionarGamePeloId(Id));
+        }
+        public ActionResult platforma(string plat)
+        {
+
+            return View(game.SelecionarTodosGame());
+        }
 
         [HttpPost]
-         public ActionResult Index(string nomeJogo){ 
-             var Model = from mat in db.jogos
-                         where mat.nome.Contains(nomeJogo)
-                         select mat;
-
-             return View(Model);
-         
+         public ActionResult Index(string nomeJogo,double? valor)
+         {
+            return View(game.SelecionarGamePeloNome(nomeJogo));
          }
-       
 
-       
-         
-         
+        
+
+
+
     }
 }

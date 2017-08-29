@@ -1,0 +1,53 @@
+﻿<div  id="formulario" class="main">
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Nome do jogo</h4>
+        <input ID="nome" Class="form-control " runat="server">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Descrição</h4>
+        <input TextMode="multiline" Class="form-control col-md-12 col-ms-12 col-xs-12" Columns="50" Rows="6" ID="descricao" runat="server">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Data de Lançamento</h4>
+        <input type="date" Class="form-control col-md-4 col-ms-6 col-xs-12" ID="dtLan" runat="server">
+        <br />
+    </div>
+
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Plataforma</h4>
+    </div>
+    <div class="input-group input-group-lg">
+        <select Class="form-control col-md-2 col-sm-6 col-xs-12" ID="plataforma">
+            <option Value="pc">PC</option>
+            <option Value="ps3">Ps3</option>
+            <option Value="ps4">Ps4</option>
+            <option Value="xbox 360">Xbox 360</option>
+            <option Value="xbox one">Xbox One</option>
+
+        </select>
+    </div>
+    <br />
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Preço</h4>
+        <input ID="preco" Class="form-control col-md-2 col-ms-6 col-xs-12" type="number" runat="server" default="0">
+        <br />
+    </div>
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Quantidade</h4>
+        <input ID="quantidade" Class="form-control col-md-3 col-ms-6 col-xs-12" type="number" runat="server" default="0">
+    </div>
+    <br />
+    <div class="input-group input-group-lg">
+        <h4 class="text-danger">Enviar Foto</h4>
+        <asp:FileUpload ID="fotoJogo" runat="server" />
+    </div>
+    <br />
+    <br />
+    <div class="input-group input-group-lg">
+
+        <Button ID="Button1" runat="server" Class="btn btn-danger" OnClick="validacao" > Inserir Jogo</Button>
+    </div>
+
+</div>

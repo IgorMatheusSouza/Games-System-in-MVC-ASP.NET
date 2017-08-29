@@ -65,7 +65,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="sistemaGamesEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="sistemaGamesEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="clientes" EntityType="Self.clientes" />
     <EntitySet Name="compra" EntityType="Self.compra" />
     <EntitySet Name="jogos" EntityType="Self.jogos" />
