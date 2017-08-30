@@ -1,0 +1,299 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+ header {
+            background-color: black;
+            min-width: 100%;
+            margin-top:0;
+        }
+
+        #logo {
+            width: 200px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        #linha-vermelha {
+            min-width: 103.3%;
+            margin-left: -2%;
+            height: 6px;
+            background-color: crimson;
+        }
+
+        #aside {
+            background-color: black;
+            border: crimson;
+            border-style: solid;
+            border-width: medium;
+            color: white;
+        }
+
+        #car {
+            margin-top: 20px;
+        }
+
+
+
+        .main {
+            margin: auto;
+            display: block;
+            max-width: 1180px;
+        }
+
+        .myimg {
+            float: left;
+            position: relative;
+        }
+
+        .txtdescricao {
+            margin-top: 5px;
+            float: right;
+            color: black !important;
+            font-size: 15px !important;
+        }
+
+        .header {
+            display: block;
+            margin-top: 20px;
+            font-size: 35px;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background-color: crimson;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .smalltxt {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .txtpreco {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .btncompra {
+            margin-top: 10px;
+            font-size: 14px;
+            display: block;
+            padding: -30px 40px;
+        }
+
+        .line-invisible {
+            width: 100%;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        #T1 {
+            width: 80%;
+            display: grid;
+            float: left;
+        }
+
+        #Button1 {
+            float: left;
+            margin-left: 4px;
+        }
+
+        #divBuscar {
+      
+            margin: auto;
+            display: block;
+            margin-top: 50px;
+        }
+
+        .list-group-item {
+            background-color: rgba(109, 17, 17, 0.56);
+            color: white;
+            border-color: black;
+            text-align: center;
+        }
+
+        #HyperLink1 {
+            color: white;
+        }
+
+        .insivible {
+            display: none;
+        }
+
+        .list-group-items {
+            text-decoration: none;
+        }
+
+        .list-group-item:hover {
+            background-color: rgba(109, 17, 17, 0.16)!important;
+        }
+
+        .btn-danger {
+            background-color: rgb(128, 10, 10);
+            border-color: rgb(128, 10, 10);
+        }
+
+        #filtrar {
+            margin-bottom: 10px;
+        }
+        .btn-group-bg {
+            background-color: rgb(128, 10, 10);
+            border-color: black;
+            color:white;
+           
+        }
+
+        .btn-group-bg:hover {
+            background-color: rgba(109, 17, 17, 0.56);
+             color:white;
+        }
+        .wid {
+            width:100%!important;
+            }
+        
+        
+        .myimg-jp {
+            float: left;
+            position: relative;
+        }
+        
+        .txtdescricao-jp {
+            float: right;
+            color: black !important;
+            font-size: 15px !important;
+        }
+        
+        .header-jp {
+            display: block;
+            margin-top: 20px;
+            font-size: 35px;
+        }
+        
+        .line-jp {
+            width: 100%;
+            height: 2px;
+            background-color: crimson;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .smalltxt-jp {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .txtpreco-jp {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        
+        .line-invisible {
+            width: 100%;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+        }
+        
+        .insivible {
+            display: none;
+        }
+        
+        .main-jp {
+            margin: auto;
+            display: block;
+            max-width: 1180px;
+        }
+        
+        .finaltxt {
+            font-size: medium;
+            text-align: center;
+        }
+        #descricao {
+            height: 130px;
+        }
+
+        #form1 {
+            margin-bottom: 150px;
+        }
+        #cadastrarJogoArea {
+           display:none;
+        }
+        .btn-incial {
+        display:block;
+        margin:auto;
+        text-align:center;
+        margin-top:40px;
+        
+        }
+                    
+        @media screen and (max-width: 760px) {
+
+            #logo {
+                width: 100%;
+                max-width: 150px;
+                display: block;
+                margin: auto;
+                margin-top: 10px;
+            }
+
+            .txtdescricao {
+                font-size: 9px !important;
+            }
+
+            .header {
+                margin-top: 13px;
+                font-size: 14px;
+            }
+
+            .txtpreco {
+                margin-top: 15px;
+                font-size: 11px !important;
+                margin-bottom: 35px;
+            }
+
+            .smalltxt {
+                margin-top: 10px;
+                font-size: 10px;
+            }
+
+            .myimg {
+                width: 60%;
+                display: block;
+                margin-left: 20%;
+            }
+
+
+            #T1 {
+                width: 62%;
+            }
+
+            #car, #sniper {
+                margin-top: 30px;
+            }
+        }

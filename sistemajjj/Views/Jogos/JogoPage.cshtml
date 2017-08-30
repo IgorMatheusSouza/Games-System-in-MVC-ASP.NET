@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "JogoPage";
+}
+
+
+<div class="main">
+
+
+ <div id="divBuscar" class="input-group-sm col-md-12 col-sm-12 col-xs-12">
+
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="myDiv">
+        <div class="line col-sm-12 col-xs-12"></div>
+        <span class="header-jp col-md-10 text-center col-xs-12 col-sm-10" onclick="click(5)">@Model.nome</span>
+        <span class="txtpreco-jp col-md-2 text-center text-success col-xs-4 col-sm-3">R$ @Model.preco</span>
+        <img class="col-md-6  col-sm-6  col-xs-12 myimg-jp" src="~/Content/@Model.img" />
+        <p class="txtdescricao-jp col-md-6  col-sm-6 col-xs-12 text-danger ">@Model.descricao</p>
+        <div class="line-invisible col-sm-12 col-xs-12"></div>
+        <span class="smalltxt-jp text-danger col-md-6 pull-left col-xs-12 col-sm-6">Plataforma: @Model.plataforma</span>
+        <span class="smalltxt-jp text-danger col-md-6 pull-left col-xs-12 col-sm-6">Data Lancamento: @Model.dtLancamentos</span>
+        <span class="smalltxt-jp text-danger col-md-3 pull-left col-xs-4 col-sm-4">Quantidade Disponível: @Model.quantidade</span>
+        
+
+ </div>
+</div>

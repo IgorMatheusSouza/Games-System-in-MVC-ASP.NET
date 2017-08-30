@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+
+
+</head>
+<body>
+
+
+
+   <div style="margin-top:-50px;" class="row">
+       <header class="col-md-12 col-sm-12 col-xs-12">
+            <div class="main">
+
+                    <img src="~/Content/imgs/car.png" class="col-lg-3 col-md-3  col-sm-3  hidden-xs " id="car" />
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <img src="~/Content/imgs/logo-asc.png" id="logo" />
+                </div>
+                    <img src="~/Content/imgs/sniper.png" class="col-lg-3  col-md-3  col-sm-3  hidden-xs" id="sniper" />
+                <div id="linha-vermelha"></div>
+                
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <a href="Jogos/Index"><span class="btn btn-group-bg wid"> Jogos</span></a>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <span class="btn btn-group-bg wid">Compras</span>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="cadastrarJogo"><span class="btn btn-group-bg wid">Cadastrar</span></a>
+</div>
+                        <div class="btn-group" role="group">
+                            <a href="http://localhost:9924/clientes/Index"><span class="btn btn-group-bg wid">Relatorios</span></a>
+                        </div>
+                    </div>
+                
+            </div>
+    </header>
+</div>
+    
+    @RenderBody()
+    
+</body>
+</html>
