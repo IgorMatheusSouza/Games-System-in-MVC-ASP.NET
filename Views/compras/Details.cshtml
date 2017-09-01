@@ -1,0 +1,66 @@
+﻿@model SistemaJogos.ConnectionDB.compra
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>compra</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.dtCompra)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dtCompra)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.quantidade)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.quantidade)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.valor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.valor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clientes.nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clientes.nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.jogos.nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.jogos.nome)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

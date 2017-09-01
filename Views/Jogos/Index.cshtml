@@ -6,19 +6,19 @@
 
 <div class="main">
 
+    <form method="post">
+        <div id="divBuscar" class="input-group-sm col-md-12 col-sm-12 col-xs-12">
 
-    <div id="divBuscar" class="input-group-sm col-md-12 col-sm-12 col-xs-12">
 
-        <form method="post">
             <input id="T1" class="form-control" name="nomeJogo" placeholder="Digite o nome do jogo">
             <button id="Button1" class="btn btn-danger">Pesquisar</button>
-        </form>
 
-    </div>
-    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="myDiv">
-        
-    @{foreach (var jog in Model)
-        {
+
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="myDiv">
+
+            @{foreach (var jog in Model)
+                {
                     <div class="line col-sm-12 col-xs-12"></div>
                     <span class="header col-md-9 text-center col-xs-8 col-sm-9" onclick="click(5)">@jog.nome</span>
                     <span class="txtpreco col-md-3 text-center text-success col-xs-4 col-sm-3">R$ @jog.preco</span>
@@ -28,30 +28,31 @@
                     <span class="smalltxt text-danger col-md-6 pull-left col-xs-12 col-sm-6">Plataforma: @jog.plataforma</span>
                     <span class="smalltxt text-danger col-md-6 pull-left col-xs-12 col-sm-6">Data Lancamento: @jog.dtLancamentos</span>
                     <span class="smalltxt text-danger col-md-3 pull-left col-xs-4 col-sm-4">Quantidade Disponível: @jog.quantidade</span>
-                    <a class="btncompra btn btn-danger col-md-12 col-xs-12 col-sm-12" href="JogoPage/@jog.idjogos">Comprar</a>
-          }
-        }
-    </div>
-   
-    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" id="aside">
-        <h3>Filtrar por:</h3>
-        <h4 class="text-center">Plataforma</h4>
-        <div class="list-group">
-
-            <a href="Index?plat=pc"><li class="list-group-item">PC</li></a>
-            <a href="Index?plat=ps3"><li class="list-group-item">Ps3</li></a>
-            <a href="Index?plat=ps4"><li class="list-group-item">Ps4</li></a>
-            <a href="Index?plat=xbox 360"><li class="list-group-item">Xbox 360</li></a>
-            <a href="Index?plat=xbox one"><li class="list-group-item">Xbox one</li></a>
+                    <a class="btncompra btn btn-danger col-md-12 col-xs-12 col-sm-12" href="Jogos/JogoPage/@jog.idjogos">Comprar</a>
+                }
+            }
         </div>
 
-     
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" id="aside">
+            <h3>Filtrar por:</h3>
+            <h4 class="text-center">Plataforma</h4>
+            <ul class="list-group">
+
+                <li class="list-group-item branco">@Html.ActionLink("PC", "Index", "Jogos", new { plat = "pc" }, null)</li>
+                <li class="list-group-item">@Html.ActionLink("Ps3", "Index", "Jogos", new { plat = "ps3" }, null)</li>
+                <li class="list-group-item">@Html.ActionLink("Ps4", "Index", "Jogos", new { plat = "ps4" }, null)</li>
+                <li class="list-group-item">@Html.ActionLink("Xbox 360", "Index", "Jogos", new { plat = "xbox 360" }, null)</li>
+                <li class="list-group-item">@Html.ActionLink("Xbox One", "Index", "Jogos", new { plat = "xbox one" }, null)</li>
+            </ul>
+
+
             <h4 class="text-center">Preço Max</h4>
-            <input class="form-control text-danger" type="number" nome="valor" id="valor">
+            <input class="form-control text-danger" type="number" name="valor" id="valor">
+
 
             <br />
             <h4>Data lançamento</h4>
-            <select class="form-control text-danger" id="select">
+            <select class="form-control text-danger" id="select" name="ano">
                 <option value="2">Todos</option>
 
                 <option value="2017">2017</option>
@@ -67,13 +68,10 @@
 
             </select>
             <br />
-            <button id="filtrar" onclick="filtrar()" class="btn col-md-12 btn-danger">Filtrar</button>
+            <button id="filtrar" class="btn col-md-12 btn-danger">Filtrar</button>
+          </div>
+    </form>
 </div>
 
-</div>
 
-<script>
-    function filtrar() {
-        window.location.href("Index?plat=ps4" + $("#valor").val());
-            }
-</script>
+

@@ -7,12 +7,12 @@
 <div class="main">
 
 
- <div id="divBuscar" class="input-group-sm col-md-12 col-sm-12 col-xs-12">
+    <div id="divBuscar" class="input-group-sm col-md-12 col-sm-12 col-xs-12">
 
     </div>
     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="myDiv">
         <div class="line col-sm-12 col-xs-12"></div>
-        <span class="header-jp col-md-10 text-center col-xs-12 col-sm-10" onclick="click(5)">@Model.nome</span>
+        <span class="header-jp col-md-10 text-center col-xs-12 col-sm-10">@Model.nome</span>
         <span class="txtpreco-jp col-md-2 text-center text-success col-xs-4 col-sm-3">R$ @Model.preco</span>
         <img class="col-md-6  col-sm-6  col-xs-12 myimg-jp" src="~/Content/@Model.img" />
         <p class="txtdescricao-jp col-md-6  col-sm-6 col-xs-12 text-danger ">@Model.descricao</p>
@@ -20,7 +20,50 @@
         <span class="smalltxt-jp text-danger col-md-6 pull-left col-xs-12 col-sm-6">Plataforma: @Model.plataforma</span>
         <span class="smalltxt-jp text-danger col-md-6 pull-left col-xs-12 col-sm-6">Data Lancamento: @Model.dtLancamentos</span>
         <span class="smalltxt-jp text-danger col-md-3 pull-left col-xs-4 col-sm-4">Quantidade Disponível: @Model.quantidade</span>
-        
 
- </div>
+
+    </div>
 </div>
+
+
+<div class="container">
+    <form method="post">
+        <div runat="server" class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="myDiv">
+        </div>
+        <div id="form" class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+            <div class="col-md-11">
+                <h4>Jogo</h4>
+                <input list="listAjuda" class="form-control" name="nomeJogo" autocomplete="off" type="text" value="@Model.nome"/>
+                <input id="qntd" type="number" style="display:none" class="form-control" name="jogoId" min="1" max="20" value="@Model.idjogos"/>
+            </div>
+                <div class="col-md-11">
+                    <h4>Nome</h4>
+                    <input id="nome" list="listAjuda" class="form-control" name="nomeCliente" autocomplete="off" type="text" />
+
+                    <div class="col-md-2">
+                        <h4>Quantidade</h4>
+                        <input id="qntd" type="number" class="form-control" name="quant" min="1" max="20" value="1" />
+
+                    </div>
+
+                    <div class="col-md-5">
+                        <h4>Cpf</h4>
+                        <input id="desc" class="form-control" type="text" readonly="true" />
+                    </div>
+
+
+                    <div class="col-md-12" style="margin-top:25px">
+                        <Button ID="ButtonFinalizar" class="btn btn-danger" runat="server" OnClick="ButtonFinalizar_Click">Finalizar compra</Button>
+
+                        <a href="Insert.aspx" target="_blank">
+                            <h4 class="text-warning">Caso o cliente não possua cadastro clique aqui</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+<div id="divFinal" runat="server">
+</div>
+
